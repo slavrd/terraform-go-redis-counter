@@ -1,0 +1,1 @@
+# terraform-go-redis-counter
