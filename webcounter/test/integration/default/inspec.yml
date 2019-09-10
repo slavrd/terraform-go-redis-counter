@@ -1,0 +1,15 @@
+---
+name: default
+title: Webcounter Terraform module tests
+summary: Test suite for basic check of Redis installation
+version: 0.1.0
+
+inputs:
+  - name: webcounter_public_dns
+    type: Array
+  - name: webcounter_public_ips
+    type: Array
+  - name: redis_address
+    type: String
+  - name: redis_password
+    type: String
