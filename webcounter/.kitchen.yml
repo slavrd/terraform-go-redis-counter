@@ -1,12 +1,8 @@
 driver:
   name: terraform
-  # The test fixture Terraform configuration is configured to be the Terraform
-  # root module
   root_module_directory: test/fixtures
-  variables:
-    ami_id: "ami-039b608d6700512d0"
-    redis_address: "10.10.10.10"
-    redis_password: "testRedisPassw0rd"
+  variable_files:
+    - test/fixtures/test.tfvars
 
 provisioner:
   name: terraform
