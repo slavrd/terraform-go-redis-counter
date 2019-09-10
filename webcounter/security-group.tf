@@ -1,5 +1,5 @@
 resource "aws_security_group" "sg_default_webcounter" {
-  name        = "webcounter-${timestamp()}"
+  name        = "webcounter-${formatdate("YYYYMMDDHHmmss", timestamp())}"
   description = "webcounter default access"
   lifecycle {
     create_before_destroy = true
