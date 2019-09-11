@@ -19,7 +19,6 @@ module "redis" {
   source           = "../../"
   ami_id           = var.ami_id
   key_name         = aws_key_pair.kitchen-test.key_name
-  private_key_path = "${path.root}/${var.ssh_private_key_path}"
   redis_password   = var.redis_password
   associate_public_ip_address = true
 }
