@@ -20,7 +20,7 @@ variable "redis_address" {
 
 variable "redis_password" {
   type        = string
-  description = "The address of the Redis server the webcounter should connect to."
+  description = "The password for the Redis server the webcounter should connect to."
 }
 
 variable "instance_count" {
