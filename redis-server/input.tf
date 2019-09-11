@@ -8,11 +8,6 @@ variable "key_name" {
   description = "The AWS Key Pair name to use for the Redis server VM."
 }
 
-variable "private_key_path" {
-  type        = string
-  description = "The the private key of the AWS Key Pair used for the Redis server VM."
-}
-
 variable "redis_password" {
   type        = string
   description = "The password for the Redis server."
