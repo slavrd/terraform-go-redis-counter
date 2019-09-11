@@ -1,0 +1,17 @@
+---
+name: default
+title: Redis VM Terraform module tests
+summary: Test suite for basic check of Redis installation
+version: 0.1.0
+
+inputs:
+  - name: redis_private_dns
+    type: String
+  - name: redis_private_ip
+    type: String
+  - name: redis_public_dns
+    type: String
+  - name: redis_public_ip
+    type: String
+  - name: redis_password
+    type: String
