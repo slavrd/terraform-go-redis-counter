@@ -1,7 +1,7 @@
 ---
 name: default
 title: Webcounter Terraform module tests
-summary: Test suite for basic check of Redis installation
+summary: Test suite for basic check of webcounter app installation
 version: 0.1.0
 
 inputs:
