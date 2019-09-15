@@ -6,9 +6,9 @@ resource "aws_instance" "webcounter" {
   vpc_security_group_ids      = [aws_security_group.sg_default_webcounter.id]
   associate_public_ip_address = var.associate_public_ip_address
   key_name                    = var.key_name
-  depends_on = [
-    aws_security_group.sg_default_webcounter
-  ]
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "null_resource" "provision" {
@@ -23,7 +23,7 @@ resource "null_resource" "provision" {
   }
 
   provisioner "file" {
-    content     = <<-EOF
+    content = <<-EOF
                   [Service]
                   Environment='REDIS_ADDR=${var.redis_address}' 'REDIS_PASS=${var.redis_password}'
                   EOF
