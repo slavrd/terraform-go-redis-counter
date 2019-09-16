@@ -1,0 +1,11 @@
+---
+name: default
+title: Webcounter main Terraform module test
+summary: Test suite for basic check of webcounter app installation
+version: 0.1.0
+
+inputs:
+  - name: webcounter_public_dns
+    type: Array
+  - name: webcounter_public_ips
+    type: Array
