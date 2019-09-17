@@ -4,6 +4,8 @@ A Terraform module that deploys an AWS EC2 instance(s) and a security group. The
 
 The security group has incoming connections allowed for ports `8000`(webcounter default port) and `22`(SSH).
 
+In case that a list of subnets is provided, the instances will be spread across them.
+
 Input variables for the module are defined in `input.tf`.
 
 **Notes:**
@@ -13,6 +15,8 @@ Input variables for the module are defined in `input.tf`.
 
 ## Testing with Kitchen-Terraform
 
-The wrapper code used to test the module is located in `test/fixtures`. It defines the module and also creates a temporary AWS key pair from the keys located in `test/assets`
+The wrapper code used to test the module is located in `test/fixtures`. It defines the module and also creates a temporary AWS key pair from the keys located in `test/assets`.
+
+Currently the test will create the instances in the default VPC of the region.
 
 Input variables for the test are defined `test/fixtures/test.tfvars` and can be changed as needed.
