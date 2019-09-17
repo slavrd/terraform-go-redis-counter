@@ -35,8 +35,8 @@ variable "instance_type" {
   description = "The type of the webcounter VMs to create."
 }
 
-variable "subnet_id" {
-  type        = string
+variable "subnet_ids" {
+  type        = list
   default     = null
   description = "The subnet id in which to create the webcounter VMs."
 }
