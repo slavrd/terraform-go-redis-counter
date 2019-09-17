@@ -15,4 +15,9 @@ Input variables for the module are defined in `input.tf`.
 
 The wrapper code used to test the module is located in `test/fixtures`. It defines the module and also creates a temporary AWS key pair from the keys located in `test/assets`
 
+Currently the test fixture:
+
+*  will create the instance in the default VPC of the region using one of the subnets in it.
+*  will create the instance with the latest AMI found - owned by the AWS account of the user running the test and name that matches the regex `^ubuntu-redis-\\d+$`.
+
 Input variables for the test are defined `test/fixtures/test.tfvars` and can be changed as needed.
