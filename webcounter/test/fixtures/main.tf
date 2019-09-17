@@ -19,6 +19,17 @@ resource "aws_key_pair" "kitchen-test" {
   }
 }
 
+data "aws_vpcs" "default" {
+  filter {
+    name   = "isDefault"
+    values = ["true"]
+  }
+}
+
+data "aws_subnet_ids" "default_subnets" {
+  vpc_id = tolist(data.aws_vpcs.default.ids)[0]
+}
+
 module "webcounter" {
   source           = "../../"
   ami_id           = var.ami_id
@@ -26,5 +37,6 @@ module "webcounter" {
   private_key_path = "${path.root}/${var.ssh_private_key_path}"
   redis_address    = var.redis_address
   redis_password   = var.redis_password
+  subnet_ids       = data.aws_subnet_ids.default_subnets.ids
   instance_count   = 2
 }

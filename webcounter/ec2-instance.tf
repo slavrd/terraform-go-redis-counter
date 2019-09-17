@@ -2,7 +2,7 @@ resource "aws_instance" "webcounter" {
   count                       = var.instance_count
   ami                         = var.ami_id
   instance_type               = var.instance_type
-  subnet_id                   = var.subnet_id
+  subnet_id                   = var.subnet_ids == null ? null : element(var.subnet_ids, count.index)
   vpc_security_group_ids      = [aws_security_group.sg_default_webcounter.id]
   associate_public_ip_address = var.associate_public_ip_address
   key_name                    = var.key_name
