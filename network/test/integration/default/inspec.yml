@@ -6,6 +6,10 @@ version: 0.1.0
 
 inputs:
   - name: private_subnet_ids
-    type: String
+    type: Array
   - name: public_subnet_ids
-    type: String
+    type: Array
+  - name: public_instances
+    type: Array
+  - name: private_instances
+    type: Array

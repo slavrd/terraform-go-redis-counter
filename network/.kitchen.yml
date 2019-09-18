@@ -12,8 +12,8 @@ verifier:
 
   systems:
     
-    - name: aws
-      backend: aws
+    - name: local
+      backend: local
       controls:
         - remote
 

@@ -14,20 +14,20 @@ variable "common_tags" {
 }
 
 variable "public_subnet_cidrs" {
-  type        = list
-  default     = [
-      "172.31.0.0/24",
-      "172.31.1.0/24",
-    ]
+  type = list
+  default = [
+    "172.31.0.0/24",
+    "172.31.1.0/24",
+  ]
   description = "CIDR blocks list to create public subnets"
 }
 
 variable "private_subnet_cidrs" {
-  type        = list
-  default     = [
-      "172.31.4.0/24",
-      "172.31.5.0/24",
-    ]
+  type = list
+  default = [
+    "172.31.4.0/24",
+    "172.31.5.0/24",
+  ]
   description = "CIDR blocks list to create private subnets"
 }
 
