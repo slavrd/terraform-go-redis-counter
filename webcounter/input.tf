@@ -35,10 +35,16 @@ variable "instance_type" {
   description = "The type of the webcounter VMs to create."
 }
 
+variable "vpc_id" {
+  type = string
+  default = null
+  description = "The VPC in which the machines will be created. Must be used together with subnet_ids."
+}
+
 variable "subnet_ids" {
   type        = list
   default     = null
-  description = "The subnet id in which to create the webcounter VMs."
+  description = "The subnet id in which to create the webcounter VMs. Must be used together with vpc_id."
 }
 
 variable "associate_public_ip_address" {
