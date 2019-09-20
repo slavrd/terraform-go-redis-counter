@@ -1,3 +1,11 @@
+module "network" {
+  source = "./network"
+  vpc_cidr_block = var.net_vpc_cidr_block
+  public_subnet_cidrs = var.net_public_subnet_cidrs
+  private_subnet_cidrs = var.net_private_subnet_cidrs
+  common_tags = var.common_tags
+}
+
 module "webcounter" {
   source                      = "./webcounter"
   ami_id                      = var.wc_ami_id
