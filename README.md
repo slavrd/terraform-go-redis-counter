@@ -16,7 +16,7 @@ All modules are tested using [`Kitchen-Terraform`](https://newcontext-oss.github
 ## Usage
 
 * Set up AWS region using environment variable - `export AWS_REGION=my-aws-region`.
-* Assign values to the terraform input variables - [help](https://www.terraform.io/docs/configuration/variables.html#assigning-values-to-root-module-variables). The variables and their descriptions are defined in `input.tf`
+* Assign values to the terraform input variables - [help](https://www.terraform.io/docs/configuration/variables.html#assigning-values-to-root-module-variables). The variables and their descriptions are defined in the `input.*.tf` files.
 * run `terraform init` to initialize the terraform project.
 * run `terraform plan|apply|destroy` to manage the AWS resources.
 
