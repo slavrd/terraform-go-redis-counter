@@ -7,7 +7,7 @@ module "webcounter" {
   redis_password              = var.redis_password
   instance_count              = var.wc_instance_count
   instance_type               = var.wc_instance_type
-  subnet_id                   = var.wc_subnet_id
+  subnet_ids                   = var.wc_subnet_ids
   associate_public_ip_address = var.wc_associate_public_ip_address
 }
 
