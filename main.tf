@@ -1,9 +1,9 @@
 module "network" {
-  source = "./network"
-  vpc_cidr_block = var.net_vpc_cidr_block
-  public_subnet_cidrs = var.net_public_subnet_cidrs
+  source               = "./network"
+  vpc_cidr_block       = var.net_vpc_cidr_block
+  public_subnet_cidrs  = var.net_public_subnet_cidrs
   private_subnet_cidrs = var.net_private_subnet_cidrs
-  common_tags = var.common_tags
+  common_tags          = var.common_tags
 }
 
 module "webcounter" {
@@ -14,7 +14,8 @@ module "webcounter" {
   redis_password              = var.redis_password
   instance_count              = var.wc_instance_count
   instance_type               = var.wc_instance_type
-  subnet_ids                   = var.wc_subnet_ids
+  subnet_ids                  = module.network.public_subnet_ids
+  vpc_id                      = module.network.vpc_id
   associate_public_ip_address = var.wc_associate_public_ip_address
 }
 
@@ -24,6 +25,7 @@ module "redis" {
   key_name                    = var.key_pair_name
   redis_password              = var.redis_password
   instance_type               = var.redis_instance_type
-  subnet_id                   = var.redis_subnet_id
+  subnet_id                   = module.network.private_subnet_ids[0]
+  vpc_id                      = module.network.vpc_id
   associate_public_ip_address = var.redis_associate_public_ip_address
 }
