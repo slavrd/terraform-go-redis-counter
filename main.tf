@@ -10,7 +10,6 @@ module "webcounter" {
   source                      = "./webcounter"
   ami_id                      = var.wc_ami_id
   key_name                    = var.key_pair_name
-  private_key_path            = var.private_key_path
   redis_address               = module.redis.redis_private_ip
   redis_password              = var.redis_password
   instance_count              = var.wc_instance_count
