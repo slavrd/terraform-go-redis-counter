@@ -34,7 +34,6 @@ Setting up tests:
 
 ```HCL
 key_pair_name     = "general-key"
-private_key_path  = "~/.ssh/aws-general-key.pem"
 wc_ami_id         = "ami-039b608d6700512d0"
 redis_password    = "myTestPa$$w0rd"
 redis_ami_id      = "ami-00746ca514369159d"
