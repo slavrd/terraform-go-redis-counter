@@ -8,11 +8,6 @@ variable "key_name" {
   description = "The AWS Key Pair name to use for the webcounter VMs"
 }
 
-# variable "private_key_path" {
-#   type        = string
-#   description = "The the private key of the AWS Key Pair used for the webcounter VMs"
-# }
-
 variable "redis_address" {
   type        = string
   description = "The address of the Redis server the webcounter should connect to."
