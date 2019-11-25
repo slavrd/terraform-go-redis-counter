@@ -3,7 +3,7 @@ terraform {
 }
 
 provider "aws" {
-  version = "~> 2.26.0"
+  version = "~> 2.26"
 }
 
 resource "aws_key_pair" "kitchen-test" {
