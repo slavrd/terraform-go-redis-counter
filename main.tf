@@ -1,5 +1,5 @@
 module "network-basic" {
-  source               = "github.com/slavrd/terraform-aws-basic-network?ref=0.1.0"
+  source               = "github.com/slavrd/terraform-aws-basic-network?ref=0.1.1"
   vpc_cidr_block       = var.net_vpc_cidr_block
   public_subnet_cidrs  = var.net_public_subnet_cidrs
   private_subnet_cidrs = var.net_private_subnet_cidrs
