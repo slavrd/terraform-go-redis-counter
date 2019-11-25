@@ -19,13 +19,11 @@ variable "name_prefix" {
   description = "Prefix for the Name tag for all resources."
 }
 
-# Currently the project and environment tags are used to construct the Name tag in some modules
-# TODO: check and remove this.
 variable "common_tags" {
   type = map
   default = {
-    project     = "webcounter"
-    environment = "prod"
+    project = ""
+    owner   = ""
   }
-  description = "Default tags which will be applied to all the created resources. The current default keys must be allways present!. Name tag is set separetely."
+  description = "Default tags which will be applied to all the created resources. Name tag is set separetely."
 }

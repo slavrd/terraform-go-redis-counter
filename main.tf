@@ -1,11 +1,3 @@
-# module "network" {
-#   source               = "./network"
-#   vpc_cidr_block       = var.net_vpc_cidr_block
-#   public_subnet_cidrs  = var.net_public_subnet_cidrs
-#   private_subnet_cidrs = var.net_private_subnet_cidrs
-#   common_tags          = var.common_tags
-# }
-
 module "network-basic" {
   source               = "github.com/slavrd/terraform-aws-basic-network?ref=0.1.0"
   vpc_cidr_block       = var.net_vpc_cidr_block
@@ -26,6 +18,8 @@ module "webcounter" {
   subnet_ids                  = module.network-basic.public_subnet_ids
   vpc_id                      = module.network-basic.vpc_id
   associate_public_ip_address = var.wc_associate_public_ip_address
+  common_tags                 = var.common_tags
+  name_prefix                 = var.name_prefix
 }
 
 module "redis" {
@@ -37,4 +31,6 @@ module "redis" {
   subnet_id                   = module.network-basic.private_subnet_ids[0]
   vpc_id                      = module.network-basic.vpc_id
   associate_public_ip_address = var.redis_associate_public_ip_address
+  common_tags                 = var.common_tags
+  name_prefix                 = var.name_prefix
 }
