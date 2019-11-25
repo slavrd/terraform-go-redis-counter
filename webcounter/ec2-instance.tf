@@ -20,4 +20,10 @@ resource "aws_instance" "webcounter" {
   lifecycle {
     create_before_destroy = true
   }
+  tags = merge(
+    {
+      Name = "${var.name_prefix}-webcounter-server"
+    },
+    var.common_tags
+  )
 }

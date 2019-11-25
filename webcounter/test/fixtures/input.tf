@@ -24,3 +24,18 @@ variable "redis_password" {
   type        = string
   description = "Dummy Redis server password."
 }
+
+variable "name_prefix" {
+  type        = string
+  default     = "kitchen-test"
+  description = "Prefix for the Name tag for all resources."
+}
+
+variable "common_tags" {
+  type = map
+  default = {
+    owner   = "kitchen-test"
+    project = "kitchen-test-webcounter"
+  }
+  description = "Default tags which will be applied to all the created resources. Name tag is set separetely used name_prefix."
+}
