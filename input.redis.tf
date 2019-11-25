@@ -9,12 +9,6 @@ variable "redis_instance_type" {
   description = "The type of the Redis server VM to create."
 }
 
-variable "redis_subnet_id" {
-  type        = string
-  default     = null
-  description = "The subnet id in which to create the Redis server VM."
-}
-
 variable "redis_associate_public_ip_address" {
   type        = bool
   default     = false
