@@ -1,11 +1,12 @@
 resource "aws_security_group" "sg_default_redis" {
   name        = "webcounter-redis-${formatdate("YYYYMMDDHHmmss", timestamp())}"
   description = "redis server default access"
-  vpc_id = var.vpc_id != null ? var.vpc_id : null
+  vpc_id      = var.vpc_id != null ? var.vpc_id : null
   lifecycle {
     create_before_destroy = true
     ignore_changes        = [name]
   }
+  tags = var.common_tags
 }
 
 resource "aws_security_group_rule" "redis-in" {

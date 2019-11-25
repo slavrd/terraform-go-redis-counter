@@ -8,11 +8,6 @@ variable "key_name" {
   description = "The AWS Key Pair name to use for the webcounter VMs"
 }
 
-# variable "private_key_path" {
-#   type        = string
-#   description = "The the private key of the AWS Key Pair used for the webcounter VMs"
-# }
-
 variable "redis_address" {
   type        = string
   description = "The address of the Redis server the webcounter should connect to."
@@ -36,8 +31,8 @@ variable "instance_type" {
 }
 
 variable "vpc_id" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "The VPC in which the machines will be created. Must be used together with subnet_ids."
 }
 
@@ -51,4 +46,19 @@ variable "associate_public_ip_address" {
   type        = bool
   default     = true
   description = "Weather the webcounter VMs should have public ip address."
+}
+
+variable "name_prefix" {
+  type        = string
+  default     = ""
+  description = "Prefix for the Name tag for all resources."
+}
+
+variable "common_tags" {
+  type = map
+  default = {
+    project = ""
+    owner   = ""
+  }
+  description = "Default tags which will be applied to all the created resources. Name tag is set separetely used name_prefix."
 }

@@ -31,17 +31,19 @@ data "aws_subnet_ids" "default_subnets" {
 }
 
 data "aws_ami" "wc_latest" {
-  owners           = ["self"]
-  most_recent      = true
-  name_regex       = "^webcounter-\\d+\\.\\d+\\.\\d+-\\d+$"
+  owners      = ["self"]
+  most_recent = true
+  name_regex  = ".*webcounter-\\d+\\.\\d+\\.\\d+-\\d+$"
 }
 
 module "webcounter" {
-  source           = "../../"
-  ami_id           = data.aws_ami.wc_latest.id
-  key_name         = aws_key_pair.kitchen-test.key_name
-  redis_address    = var.redis_address
-  redis_password   = var.redis_password
-  subnet_ids       = data.aws_subnet_ids.default_subnets.ids
-  instance_count   = 2
+  source         = "../../"
+  ami_id         = data.aws_ami.wc_latest.id
+  key_name       = aws_key_pair.kitchen-test.key_name
+  redis_address  = var.redis_address
+  redis_password = var.redis_password
+  subnet_ids     = data.aws_subnet_ids.default_subnets.ids
+  instance_count = 2
+  name_prefix    = var.name_prefix
+  common_tags    = var.common_tags
 }

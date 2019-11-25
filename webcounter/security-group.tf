@@ -1,11 +1,12 @@
 resource "aws_security_group" "sg_default_webcounter" {
   name        = "webcounter-${formatdate("YYYYMMDDHHmmss", timestamp())}"
   description = "webcounter default access"
-  vpc_id = var.vpc_id != null ? var.vpc_id : null
+  vpc_id      = var.vpc_id != null ? var.vpc_id : null
   lifecycle {
     create_before_destroy = true
     ignore_changes        = [name]
   }
+  tags = var.common_tags
 }
 
 resource "aws_security_group_rule" "webcounter-in" {
