@@ -47,7 +47,7 @@ variable "common_tags" {
   type = map
   default = {
     project     = ""
-    environment = ""
+    owner = ""
   }
   description = "Default tags which will be applied to all the created resources. Name tag is set separetely used name_prefix."
 }

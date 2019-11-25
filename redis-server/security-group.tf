@@ -6,12 +6,7 @@ resource "aws_security_group" "sg_default_redis" {
     create_before_destroy = true
     ignore_changes        = [name]
   }
-  tags = merge(
-    {
-      Name = "${var.name_prefix}-redis-server"
-    },
-    var.common_tags
-  )
+  tags = var.common_tags
 }
 
 resource "aws_security_group_rule" "redis-in" {
