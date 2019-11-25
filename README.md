@@ -2,7 +2,7 @@
 
 A Terraform configuration to deploy the [webcounter](https://github.com/slavrd/go-redis-counter/tree/master/webcounter) application in AWS.
 
-The root module of the configuration is used to define two sub-modules - `network`, `webcounter` and `redis-server`, placed in respectively named sub directories. For details on each submodule check their readme.
+The root module of the configuration is used to call on three sub-modules - `webcounter` and `redis-server`, placed in respectively named sub directories and [terraform-aws-basic-network](https://github.com/slavrd/terraform-aws-basic-network). For details on each submodule check their readme.
 
 The modules create a VPC and subnets in which then deploy EC2 instances from pre-built AMIs. The AMIs are built using the following packer projects - [`webcounter`](https://github.com/slavrd/packer-go-redis-counter-aws), [`redis-server`](https://github.com/slavrd/packer-aws-redis64).
 
@@ -29,23 +29,8 @@ Prerequisites:
 
 Setting up tests:
 
-* set AWS region for the test - `export AWS_REGION=my-aws-region`.
-* create a file named `test.tfvars` with the terraform input variable values to be used for the test. The file path can be changed using the `driver.variable_files` key in `.kitchen.yml`. Example file:
-
-```HCL
-key_pair_name     = "general-key"
-wc_ami_id         = "ami-039b608d6700512d0"
-redis_password    = "myTestPa$$w0rd"
-redis_ami_id      = "ami-00746ca514369159d"
-wc_instance_count = 1
-net_vpc_cidr_block = "172.16.16.0/20"
-net_public_subnet_cidrs = ["172.16.16.0/24"]
-net_private_subnet_cidrs = ["172.16.20.0/24"]
-common_tags = {
-    project = "webcounter"
-    environment = "kitchen-test"
-}
-```
+* Set AWS region for the test - `export AWS_REGION=my-aws-region`.
+* The TF configuration for the test is in `test/fixtures` folder. Change values like ami search patterns, used network cidrs etc. in it as needed.
 
 Running tests (assuming using bundler):
 
