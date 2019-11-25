@@ -10,4 +10,10 @@ resource "aws_instance" "redis_server" {
                                 sed -i 's/^\(# \)*requirepass.*$/requirepass ${var.redis_password}/' /etc/redis/redis.conf
                                 systemctl restart redis.service
                                 EOT
+  tags = merge(
+    {
+      Name = "${var.name_prefix}-redis-server"
+    },
+    var.common_tags
+  )
 }

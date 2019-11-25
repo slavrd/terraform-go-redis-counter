@@ -20,8 +20,8 @@ variable "instance_type" {
 }
 
 variable "vpc_id" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "The VPC in which the VM will be created. Must be used together with subnet_ids."
 }
 
@@ -35,4 +35,19 @@ variable "associate_public_ip_address" {
   type        = bool
   default     = false
   description = "Weather the Redis server VM should have public ip address."
+}
+
+variable "name_prefix" {
+  type        = string
+  default     = ""
+  description = "Prefix for the Name tag for all resources."
+}
+
+variable "common_tags" {
+  type = map
+  default = {
+    project     = ""
+    environment = ""
+  }
+  description = "Default tags which will be applied to all the created resources. Name tag is set separetely used name_prefix."
 }
